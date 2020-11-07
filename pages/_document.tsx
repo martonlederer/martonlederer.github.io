@@ -1,18 +1,15 @@
-import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 
-class DocumentComponent extends Document {
-  static async getInitialProps(ctx: DocumentContext) {
+class Doc extends Document {
+  static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx)
-    return initialProps
+    return { ...initialProps }
   }
 
   render() {
     return (
-      <Html>
-        <Head>
-          <title>Marton Lederer</title>
-          <link rel="icon" href="/icon.png" />
-        </Head>
+      <Html lang="en">
+        <Head />
         <body>
           <Main />
           <NextScript />
@@ -22,4 +19,4 @@ class DocumentComponent extends Document {
   }
 }
 
-export default DocumentComponent
+export default Doc

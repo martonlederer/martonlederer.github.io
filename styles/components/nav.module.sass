@@ -1,0 +1,54 @@
+@use '../variables.sass'
+  
+.nav
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  background-color: rgba(255, 255, 255, .8)
+  backdrop-filter: blur(4.8px)
+  -webkit-backdrop-filter: blur(4.8px)
+  z-index: 1000
+  display: flex
+  align-items: center
+  justify-content: space-between
+  padding: 1em 23%
+  border-bottom: 1px solid #eaeaea
+
+  @media screen and (max-width: variables.$smaller-screens)
+    padding: 
+      left: 10%
+      right: 10%
+
+  @media screen and (max-width: variables.$mobile-width)
+    padding: 
+      left: 1.33em
+      right: 1.33em
+
+.title
+  font-size: 1.8em
+  text-transform: uppercase
+  color: #000
+  font-weight: 500
+  text-decoration: none
+
+  &:hover
+    color: variables.$theme
+    text-decoration: underline
+
+.menu
+  display: flex
+  align-items: center
+
+  a
+    font-size: 1.15em
+    color: variables.$text-color-normal
+    margin: 0 1.2em
+    text-decoration: none
+
+    &:last-child
+      margin-right: 0
+
+    &:hover
+      color: variables.$theme
+      text-decoration: underline
