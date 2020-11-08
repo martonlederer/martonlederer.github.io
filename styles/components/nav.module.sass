@@ -5,7 +5,7 @@
   top: 0
   left: 0
   right: 0
-  background-color: rgba(255, 255, 255, .8)
+  background-color: #fff
   backdrop-filter: blur(4.8px)
   -webkit-backdrop-filter: blur(4.8px)
   z-index: 1000
@@ -14,6 +14,7 @@
   justify-content: space-between
   padding: 1em 23%
   border-bottom: 1px solid #eaeaea
+  transition: all .3s
 
   @media screen and (max-width: variables.$smaller-screens)
     padding: 
@@ -25,16 +26,39 @@
       left: 1.33em
       right: 1.33em
 
-.title
-  font-size: 1.8em
-  text-transform: uppercase
-  color: #000
-  font-weight: 500
-  text-decoration: none
+.scrolled
+  padding: 
+    top: .35em
+    bottom: .35em
+  box-shadow: rgba(0, 0, 0, .1) 0px 0px 15px 0px
 
-  &:hover
-    color: variables.$theme
-    text-decoration: underline
+.title
+  font-size: 2.2em
+  font-weight: 600
+  cursor: pointer
+  display: flex
+  align-items: center
+  margin: 0
+  transition: all .3s
+
+  span
+    transition: all .3s
+
+    &:hover
+      opacity: .7
+
+  img
+    height: 1.2em
+    border-radius: 100%
+    margin-right: .5em
+    transition: all .3s
+
+    &:hover
+      opacity: .75
+
+.scrolledTitle
+  span
+    opacity: 0
 
 .menu
   display: flex
@@ -44,6 +68,7 @@
     font-size: 1.15em
     color: variables.$text-color-normal
     margin: 0 1.2em
+    transition: all .3s
     text-decoration: none
 
     &:last-child
@@ -51,4 +76,3 @@
 
     &:hover
       color: variables.$theme
-      text-decoration: underline
