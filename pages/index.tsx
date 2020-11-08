@@ -1,17 +1,17 @@
-import { useTheme } from 'next-themes'
 import Nav from '../components/Nav'
+import styles from '../styles/home.module.sass'
 
 export default function Home() {
-  const { theme, setTheme } = useTheme()
-
   return (
     <>
       <Nav />
-      <h1>Marton Lederer</h1>
-      <div className="test">
-        The current theme is: {theme}
-        <button onClick={() => setTheme('light')}>Light Mode</button>
-        <button onClick={() => setTheme('dark')}>Dark Mode</button>
+      <div className={styles.intro}>
+        <h1>
+          <span>Hi</span>
+          <span>I'm</span>
+          <span>Marton!</span>
+        </h1>
+        <p>I am a design-oriented front-end developer, many times doing back-end projects too.</p>
       </div>
     </>
   )
