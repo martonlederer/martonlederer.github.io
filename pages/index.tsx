@@ -30,14 +30,18 @@ export default function Home() {
         </h1>
         <div className={styles.buttons}>
           <Link href="/about">
-            <Button type="success" size="medium">
-              About me
-            </Button>
+            <a>
+              <Button type="success" size="medium">
+                About me
+              </Button>
+            </a>
           </Link>
           <Link href="/projects">
-            <Button type="success" size="medium" ghost>
-              Projects
-            </Button>
+            <a>
+              <Button type="success" size="medium" ghost>
+                Projects
+              </Button>
+            </a>
           </Link>
         </div>
       </div>
