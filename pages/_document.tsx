@@ -1,26 +1,27 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import { CssBaseline } from '@geist-ui/react'
 
 class Doc extends Document {
   static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx),
-      styles = CssBaseline.flush()
-
-    return {
-      ...initialProps,
-      styles: (
-        <>
-          {initialProps.styles}
-          {styles}
-        </>
-      )
-    }
+    const initialProps = await Document.getInitialProps(ctx)
+    return { ...initialProps }
   }
 
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <meta name="description" content="Web developer" />
+          <meta name="theme-color" content="#0070f3" />
+
+          <meta property="og:title" content="Marton Ledere" />
+          <meta property="og:description" content="Web developer" />
+          <meta property="og:image" content="https://marton.lederer.hu/favicon.png" />
+
+          <meta name="twitter:title" content="Marton Ledere" />
+          <meta name="twitter:description" content="Web developer" />
+          <meta name="twitter:image" content="https://marton.lederer.hu/favicon.png" />
+          <meta name="twitter:card" content="summary_large_image" />
+        </Head>
         <body>
           <Main />
           <NextScript />

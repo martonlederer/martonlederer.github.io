@@ -1,69 +1,36 @@
 @use 'variables.sass'
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap')
+
+=gradientText
+  background: linear-gradient(to left, #3828ca 0%, #ff004c 100%)
+  background-size: 200%
+  background-clip: text
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  animation: name-animation 3s ease infinite
 
 .intro
-  margin: 0 auto
+  position: relative
+  height: 100vh
+
+.name
+  position: absolute
+  top: 50%
+  left: 50%
+  margin: 0
+  font-size: 10em
+  font-weight: 900
+  letter-spacing: -.05em
   text-align: center
+  width: fit-content
+  +gradientText
+  transform: translate(-50%, -50%)
 
-  h1
-    font-family: 'Open Sans', sans-serif
-    font-size: 10rem
-    margin: .6em 1em
-    font-weight: 800
-    letter-spacing: -.08em
-    line-height: .9em
+@keyframes name-animation
+  0%
+    background-position: 0% 50%
 
-    span
-      display: block
-      position: relative
-      z-index: 1
-      color: #000
+  50%
+    background-position: 100% 50%
 
-      &::before
-        content: ''
-        position: absolute
-        width: 100%
-        height: 100%
-        top: 0
-        left: 0
-        right: 0
-        bottom: 0
-        z-index: 0
-        color: #000
-        text-align: center
-        +variables.gradient-text
-        animation: switchGradient 7s linear infinite
-
-      &:first-child::before
-        content: 'Hi'
-        background-image: linear-gradient(-90deg, variables.$theme, #00dfd8)
-        background-image: -webkit-linear-gradient(-90deg, variables.$theme, #00dfd8)
-
-      &:nth-child(2)::before
-        content: "I'm"
-        background-image: linear-gradient(-90deg, #8a00da, #ff0000)
-        background-image: -webkit-linear-gradient(-90deg, #8a00da, #ff0000)
-        animation-delay: 2.5s
-
-      &:nth-child(3)::before
-        content: 'Marton!'
-        background-image: linear-gradient(-90deg, #d8ca08, #ff5100)
-        background-image: -webkit-linear-gradient(-90deg, #d8ca08, #ff5100)
-        animation-delay: 5s
-
-@keyframes switchGradient
-  0%,
-  15%,
-  to
-    opacity: 1
-
-  33.33%,
-  83.33%
-    opacity: 0
-
-.buttons
-  padding-bottom: 2em
-
-  button
-    margin: 0 2em
-    font-size: 1.12em !important
+  100%
+    background-position: 0% 50%
