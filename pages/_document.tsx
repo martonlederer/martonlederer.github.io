@@ -11,7 +11,7 @@ class Doc extends Document {
       <Html lang="en">
         <Head>
           <meta name="description" content="Web developer" />
-          <meta name="theme-color" content="#0070f3" />
+          <meta name="theme-color" content="#3828ca" />
 
           <meta property="og:title" content="Marton Ledere" />
           <meta property="og:description" content="Web developer" />
