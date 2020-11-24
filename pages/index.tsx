@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import styles from '../styles/home.module.sass'
 import Head from 'next/head'
+import Projects from '../components/Projects'
 
 export default function Home() {
   const [visibleNot, setVisibleNot] = useState(false)
@@ -77,6 +78,7 @@ export default function Home() {
           </p>
         </div>
       </div>
+      <Projects />
       <CSSTransition in={visibleNot} timeout={230} classNames="fade-transition">
         <div className={styles.Notification} onClick={() => setVisibleNot(false)}>
           Copied discord tag!
