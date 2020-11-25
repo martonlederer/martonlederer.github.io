@@ -32,8 +32,11 @@
       margin: 0
         bottom: .3em
 
-      @media screen and (max-width: variables.$mobile-width)
+      @media screen and (max-width: variables.$smaller-screens)
         width: auto
+        font-size: 2.6em
+
+      @media screen and (max-width: variables.$mobile-width)
         font-size: 2.2em
 
       &:hover
@@ -47,8 +50,11 @@
       width: max-content
       transition: all .3s
 
-      @media screen and (max-width: variables.$mobile-width)
+      @media screen and (max-width: variables.$smaller-screens)
         width: auto
+        font-size: 1.6em
+
+      @media screen and (max-width: variables.$mobile-width)
         font-size: 1em
 
       &:hover
