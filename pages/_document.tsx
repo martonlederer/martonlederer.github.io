@@ -15,11 +15,11 @@ class Doc extends Document {
           <meta name="description" content="Web developer" />
           <meta name="theme-color" content="#3828ca" />
 
-          <meta property="og:title" content="Marton Ledere" />
+          <meta property="og:title" content="Marton Lederer" />
           <meta property="og:description" content="Web developer" />
           <meta property="og:image" content="https://marton.lederer.hu/favicon.png" />
 
-          <meta name="twitter:title" content="Marton Ledere" />
+          <meta name="twitter:title" content="Marton Lederer" />
           <meta name="twitter:description" content="Web developer" />
           <meta name="twitter:image" content="https://marton.lederer.hu/favicon.png" />
           <meta name="twitter:card" content="summary_large_image" />
