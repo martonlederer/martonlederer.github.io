@@ -2,7 +2,7 @@ import { Github, Twitter, Instagram } from '@geist-ui/react-icons'
 import Discord from '../components/Discord'
 import Telegram from '../components/Telegram'
 import copy from 'copy-to-clipboard'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import styles from '../styles/home.module.sass'
 import Head from 'next/head'
@@ -10,6 +10,8 @@ import Projects from '../components/Projects'
 
 export default function Home() {
   const [visibleNot, setVisibleNot] = useState(false)
+
+  useEffect(() => {}, [])
 
   function copyDiscord() {
     copy('Marton#6513')
