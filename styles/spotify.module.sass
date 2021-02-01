@@ -1,3 +1,5 @@
+@use 'variables.sass'
+  
 .Spotify
   position: fixed
   right: 1em
@@ -10,7 +12,11 @@
   display: flex
   text-decoration: none
   box-shadow: 0 0 19px 1px rgb(#000, .35)
+  -webkit-tap-highlight-color: transparent
   transition: all .24s ease-in-out
+
+  @media screen and (max-width: variables.$mobile-width)
+    left: 1em
 
   &:hover
     background-color: rgba(#000, .9)
@@ -21,17 +27,27 @@
     width: 4.5em
     margin-right: 1em
 
+    @media screen and (max-width: variables.$mobile-width)
+      height: 5em
+      width: 5em
+
   h1
     margin: 0
       bottom: .1em
     font-size: 1.5em
     font-weight: 600
 
+    @media screen and (max-width: variables.$mobile-width)
+      font-size: 1.25em
+
   h2
     margin: 0
       bottom: .5em
     font-size: 1em
     font-weight: 400
+
+    @media screen and (max-width: variables.$mobile-width)
+      font-size: .9em
 
   .Timeline
     width: 100%
