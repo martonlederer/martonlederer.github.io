@@ -9,10 +9,10 @@ export default function Spotify() {
   useEffect(() => {
     updateSpotify()
     const updateInterval = setInterval(updateSpotify, 12000),
-      progressInterval = setInterval(
-        () => setNowPlaying((val) => ({ ...val, progress: val.progress + 1000 })),
-        1000
-      )
+      progressInterval = setInterval(() => {
+        setNowPlaying((val) => ({ ...val, progress: val.progress + 1000 }))
+        if (nowPlaying.progress >= nowPlaying.length) updateSpotify()
+      }, 1000)
 
     return function cleanup() {
       clearInterval(updateInterval)
@@ -29,9 +29,13 @@ export default function Spotify() {
     } catch {}
   }
 
+  function truncate(string: string, from: number = 15) {
+    return string.length > from ? string.substr(0, from - 1) + '...' : string
+  }
+
   return (
     <>
-      {nowPlaying && (
+      {nowPlaying !== undefined && nowPlaying && (
         <a
           href="https://spoti.fi/3pDq193"
           target="_blank"
@@ -40,8 +44,8 @@ export default function Spotify() {
         >
           <img src={nowPlaying.thumb.url} alt="spotify-song-thumb" />
           <div>
-            <h1>Now playing: {nowPlaying.song}</h1>
-            <h2>{nowPlaying.artists}</h2>
+            <h1>Now playing: {truncate(nowPlaying.song)}</h1>
+            <h2>{truncate(nowPlaying.artists, 33)}</h2>
             <div className={styles.Timeline}>
               <div
                 className={styles.Progress}

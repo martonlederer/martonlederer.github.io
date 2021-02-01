@@ -20,7 +20,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
     if (nowPlaying.status === 200) {
       const formattedNowPlaying: INowPlaying = {
         song: nowPlaying.data.item.name,
-        artists: nowPlaying.data.item.artists.map((artist) => artist.name).join(' - '),
+        artists: nowPlaying.data.item.artists.map((artist) => artist.name).join(', '),
         thumb: nowPlaying.data.item.album.images[0],
         length: nowPlaying.data.item.duration_ms,
         progress: nowPlaying.data.progress_ms
