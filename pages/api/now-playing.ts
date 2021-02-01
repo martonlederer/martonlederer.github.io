@@ -3,6 +3,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import btoa from 'btoa'
 
 // how i got the tokens: https://github.com/codeSTACKr/spotify-now-playing/blob/master/SetUp.md
+// or README
 
 export default async function (req: NextApiRequest, res: NextApiResponse) {
   try {
@@ -16,15 +17,17 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
         }
       })
 
-    if (nowPlaying.status === 200)
-      return res.status(200).json({
+    if (nowPlaying.status === 200) {
+      const formattedNowPlaying: INowPlaying = {
         song: nowPlaying.data.item.name,
         artists: nowPlaying.data.item.artists.map((artist) => artist.name).join(' - '),
         thumb: nowPlaying.data.item.album.images[0],
         length: nowPlaying.data.item.duration_ms,
         progress: nowPlaying.data.progress_ms
-      })
-    else return res.status(203).send('Not playing anything')
+      }
+
+      return res.status(200).json(formattedNowPlaying)
+    } else return res.status(203).send('Not playing anything')
   } catch (e) {
     return res.status(500).send(e)
   }
@@ -53,4 +56,16 @@ async function getAccessToken(): Promise<string> {
 
     throw new Error('Could not get access token')
   }
+}
+
+export interface INowPlaying {
+  song: string
+  artists: string
+  thumb: {
+    height: number
+    width: number
+    url: string
+  }
+  length: number
+  progress: number
 }
