@@ -11,7 +11,7 @@ export default function Spotify() {
     const updateInterval = setInterval(updateSpotify, 12000),
       progressInterval = setInterval(() => {
         setNowPlaying((val) => ({ ...val, progress: val.progress + 1000 }))
-        if (nowPlaying.progress >= nowPlaying.length) updateSpotify()
+        if (nowPlaying && nowPlaying.progress >= nowPlaying.length) updateSpotify()
       }, 1000)
 
     return function cleanup() {
@@ -35,7 +35,7 @@ export default function Spotify() {
 
   return (
     <>
-      {nowPlaying !== undefined && nowPlaying && (
+      {nowPlaying && (
         <a
           href="https://spoti.fi/3pDq193"
           target="_blank"
