@@ -8,18 +8,16 @@ export default function Spotify() {
 
   useEffect(() => {
     updateSpotify()
-    const updateInterval = setInterval(updateSpotify, 12000),
-      progressInterval = setInterval(() => {
-        if (!nowPlaying) return
-        setNowPlaying((val) => ({ ...val, progress: val.progress + 1000 }))
-        if (nowPlaying.progress >= nowPlaying.length) updateSpotify()
-      }, 1000)
+    const progressInterval = setInterval(updateProgress, 1000)
 
     return function cleanup() {
-      clearInterval(updateInterval)
       clearInterval(progressInterval)
     }
   }, [])
+
+  useEffect(() => {
+    if (nowPlaying && nowPlaying.progress >= nowPlaying.length + 2000) updateSpotify()
+  }, [nowPlaying])
 
   async function updateSpotify() {
     try {
@@ -32,6 +30,10 @@ export default function Spotify() {
 
   function truncate(string: string, from: number = 15) {
     return string.length > from ? string.substr(0, from - 1) + '...' : string
+  }
+
+  function updateProgress() {
+    setNowPlaying((val) => (val ? { ...val, progress: val.progress + 1000 } : val))
   }
 
   return (
