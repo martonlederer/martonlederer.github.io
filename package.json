@@ -1,37 +1,27 @@
 {
   "name": "portfolio",
-  "version": "0.1.0",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "fmt": "prettier --write .",
-    "fmt:check": "prettier --check ."
-  },
-  "gitHooks": {
-    "pre-commit": "prettier --write . && git add -A"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@geist-ui/react-icons": "^1.0.1",
-    "@types/btoa": "^1.2.3",
-    "axios": "^0.21.1",
-    "btoa": "^1.2.1",
-    "copy-to-clipboard": "^3.3.1",
-    "next": "^10.0.0",
-    "next-compose-plugins": "^2.2.1",
-    "next-images": "^1.6.2",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "react-transition-group": "^4.4.1",
-    "sass": "^1.28.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/node": "^14.14.6",
-    "@types/react": "^16.9.55",
-    "@types/react-dom": "^16.9.9",
-    "prettier": "^2.1.2",
-    "typescript": "^4.0.5",
-    "yorkie": "^2.0.0"
+    "@linaria/core": "^6.1.0",
+    "@linaria/react": "^6.1.0",
+    "@types/react": "^18.2.56",
+    "@types/react-dom": "^18.2.19",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@wyw-in-js/babel-preset": "^0.5.0",
+    "@wyw-in-js/vite": "^0.5.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.4"
   }
 }
