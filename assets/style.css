@@ -1,11 +1,47 @@
 body {
   margin: 0;
-  padding: 2.5rem 5rem;
+  padding: 3rem 33vw 3rem 5rem;
   font-family: "Belleza";
   background-color: #FCFAEF;
 }
 
 h1 {
   font-size: 7.6rem;
+  line-height: 1.1em;
   margin: 0;
+  color: #035A53;
+}
+
+h2 {
+  font-size: 2.75rem;
+  font-style: italic;
+  margin-bottom: 2.75rem;
+  color: #03302d;
+}
+
+p {
+  font-size: 1.75rem;
+  color: #035A53;
+}
+
+p a {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #035A53;
+    transition: .17s ease;
+  }
+}
+
+p a:hover::after {
+  height: 4px;
 }
